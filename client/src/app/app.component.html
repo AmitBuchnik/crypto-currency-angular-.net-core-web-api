@@ -1,0 +1,67 @@
+<div class=""
+  (keydown.control.enter)="
+  onSubmit()">
+
+  <div class="flex justify-content-center">
+    <form action=""
+      [formGroup]="reactiveForm"
+      (keydown.enter)="$event.preventDefault()"
+      (ngSubmit)="onSubmit()"
+      autocomplete="off">
+
+      <div class="flex flex-column justify-content-center">
+        <h3>Sort By</h3>
+        <p-dropdown [options]="sortOptions"
+          class="form-control"
+          formControlName="option"
+          optionLabel="name"
+          placeholder="Select sort by"
+          optionValue="code"
+          (onChange)="onSelectSortBy()">
+        </p-dropdown>
+
+        <h3>Number of records</h3>
+        <input id="numRecords"
+          type="text"
+          pInputText
+          class="form-control"
+          formControlName="numRecords" />
+
+        <div class="flex flex-row-reverse">
+          <button pButton
+            style="margin-top: 15px;;"
+            type="submit"
+            [disabled]="!reactiveForm?.valid"
+            label="Search">
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <p-table #table
+      [value]="cryptoCurrencies$ | async"
+      responsiveLayout="scroll"
+      [paginator]="true"
+      [rows]="10">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Coin Name</th>
+          <th>Symbol</th>
+          <th>Price (USD)</th>
+          <th>Market Cap (USD)</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body"
+        let-currency>
+        <tr>
+          <td>{{currency?.name}}</td>
+          <td>{{currency?.symbol}}</td>
+          <td>{{currency?.metrics?.market_data?.price_usd}}</td>
+          <td>{{currency?.metrics?.marketcap?.current_marketcap_usd}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

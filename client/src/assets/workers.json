@@ -1,0 +1,37 @@
+[{
+    "id": 1,
+    "name": "worker 1",
+    "lastName": "abc",
+    "organizationId": 1
+  },
+  {
+    "id": 2,
+    "name": "worker 2",
+    "lastName": "abcd",
+    "organizationId": 1
+  },
+  {
+    "id": 3,
+    "name": "worker 3",
+    "lastName": "efgh",
+    "organizationId": 2
+  },
+  {
+    "id": 4,
+    "name": "worker 4",
+    "lastName": "dssasasdsa",
+    "organizationId": null
+  },
+  {
+    "id": 5,
+    "name": "worker 5",
+    "lastName": "ewweqw",
+    "organizationId": 3
+  },
+  {
+    "id": 6,
+    "name": "worker 6",
+    "lastName": "12121",
+    "organizationId": 4
+  }
+]
